@@ -519,12 +519,15 @@
                                                   first
                                                   clojure.string/capitalize)]]
                       (list
-                       [:h2 category-name]
+                       [:h2 (-> category-name
+                                (clojure.string/replace #"-" " "))]
                        (for [[_ post] category
                              :let [html (clojure.string/replace post #".md" ".html")]]
                          [:div
                           [:a {:href html}
-                           html]])))])
+                           (-> html
+                               (clojure.string/replace #".html$" "")
+                               (clojure.string/replace #"-" " "))]])))])
         html-str (html page-html)]
     (spit (io/file (output-folder) "index.html") html-str)))
 
