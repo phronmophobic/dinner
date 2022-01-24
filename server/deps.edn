@@ -5,6 +5,11 @@
         ;; [com.phronemophobic/membrane "0.9.21-beta-SNAPSHOT"]
         com.vladsch.flexmark/flexmark-all {:mvn/version "0.62.2"}
         hiccup/hiccup {:mvn/version "1.0.5"}}
+
+ :deps/prep-lib {:alias :build
+                 :fn compile
+                 :ensure "target/classes"}
+
  :aliases
  {:run-m {:main-opts ["-m" "com.phronemophobic.server"]}
   :build {:deps {io.github.clojure/tools.build {:git/tag "v0.7.5" :git/sha "34727f7"}}
