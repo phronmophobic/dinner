@@ -531,6 +531,8 @@
   (run! render-recipe! (all-recipes)))
 
 (defn -main [ & args]
+  (when (not (.exists (output-folder)))
+    (.mkdir (output-folder)))
   (render-all!))
 
 

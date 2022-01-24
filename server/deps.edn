@@ -9,6 +9,8 @@
  {:run-m {:main-opts ["-m" "com.phronemophobic.server"]}
   :build {:deps {io.github.clojure/tools.build {:git/tag "v0.7.5" :git/sha "34727f7"}}
           :ns-default build}
+
+  :build-static {:main-opts ["-m" "com.phronemophobic.server.markdown"]}
   :run-x {:ns-default com.phronemophobic.server
           :exec-fn greet
           :exec-args {:name "Clojure"}}
