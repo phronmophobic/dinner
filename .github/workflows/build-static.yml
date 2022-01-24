@@ -27,7 +27,10 @@ jobs:
     - name: Install dependencies
       working-directory: ./server
       run: clojure -P
-    - name: Run tests
+    - name: Prep library
+      working-directory: ./server
+      run: clojure -T:build compile
+    - name: Build static
       working-directory: ./server
       run: clojure -M:build-static
     - name: Deploy 🚀
