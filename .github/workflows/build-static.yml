@@ -1,0 +1,33 @@
+name: Clojure CI
+
+on:
+  push:
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Prepare java
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: '11'
+
+    - name: Setup Clojure
+      # You may pin to the exact commit or the version.
+      # uses: DeLaGuardo/setup-clojure@5042876523f30f5efcf1d6feaa48bd1498d7814f
+      uses: DeLaGuardo/setup-clojure@3.5
+      with:
+        tools-deps: # optional
+        # Clojure CLI version to make availablr on the path.
+        cli: # optional
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      working-directory: ./server
+      run: clojure -P
+    - name: Run tests
+      working-directory: ./server
+      run: clojure -e "(+ 1 1)"
