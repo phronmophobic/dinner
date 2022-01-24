@@ -443,7 +443,7 @@
          "Kitchen"]
         ]]
 
-      [:div.recipe-header
+      #_[:div.recipe-header
        [:div.container
         [:h1.recipe-title title]
         #_[:p.lead.recipe-description subheading]]]
