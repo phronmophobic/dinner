@@ -387,13 +387,18 @@
 (extend-type com.vladsch.flexmark.ext.gfm.tasklist.TaskListItem
   IRecipeHtml
   (recipe-html [this]
-;; <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-    ;;     <label for="subscribeNews">Subscribe to newsletter?</label>
+;; <div class="form-check">
+;;   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+;;   <label class="form-check-label" for="defaultCheck1">
+;;     Default checkbox
+;;   </label>
+;; </div>
     (let [checkbox-id (name (gensym))]
-      [:div
-       [:input {:type "checkbox"
-                :id checkbox-id}]
-       [:label {:for checkbox-id}
+      [:div.form-check
+       [:input.form-check-input
+        {:type "checkbox"
+         :id checkbox-id}]
+       [:label.form-check-label {:for checkbox-id}
         (map recipe-html (children this))]])
     ))
 
