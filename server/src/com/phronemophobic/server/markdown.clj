@@ -454,24 +454,17 @@
       ]])
   )
 
-(defn render-recipe! [f]
-  (let [
-        doc (parse (slurp f))
-        body (recipe-html doc)
-        title (first (keep (fn [x]
-                             (when (instance? com.vladsch.flexmark.ast.Heading x)
-                               (str (.getText x))))
-                           (doc->tree-seq doc)))
 
-        page-html (recipe-page title body)
-        html-str (html page-html)
-        html-filename (clojure.string/replace (.getName f) #".md" ".html")]
-    (spit (io/file "resources/public/" html-filename) html-str)))
 
 (defn project-root []
   (-> (io/file ".")
       (.getCanonicalFile)
       (.getParentFile)))
+
+(defn output-folder []
+  (io/file (project-root)
+           ;; only available option from github
+           "docs"))
 
 (defn recipes-dir []
   (io/file (project-root)
@@ -496,6 +489,20 @@
         :else (recur (conj categories (.getName f))
                      (.getParentFile f))))))
 
+(defn render-recipe! [f]
+  (let [
+        doc (parse (slurp f))
+        body (recipe-html doc)
+        title (first (keep (fn [x]
+                             (when (instance? com.vladsch.flexmark.ast.Heading x)
+                               (str (.getText x))))
+                           (doc->tree-seq doc)))
+
+        page-html (recipe-page title body)
+        html-str (html page-html)
+        html-filename (clojure.string/replace (.getName f) #".md" ".html")]
+    (spit (io/file (output-folder) html-filename) html-str)))
+
 (defn render-index []
   (let [toc (->> (all-recipes)
                  (map (juxt recipe->category #(.getName %)))
@@ -517,7 +524,7 @@
                           [:a {:href html}
                            html]])))])
         html-str (html page-html)]
-    (spit "resources/public/index.html" html-str)))
+    (spit (io/file (output-folder) "index.html") html-str)))
 
 (defn render-all! []
   (render-index)
