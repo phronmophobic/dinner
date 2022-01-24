@@ -464,7 +464,9 @@
 (defn output-folder []
   (io/file (project-root)
            ;; only available option from github
-           "docs"))
+           "server"
+           "resources"
+           "public"))
 
 (defn recipes-dir []
   (io/file (project-root)
