@@ -516,15 +516,16 @@
                  (partition-by first) )
         page-html (recipe-page
                    "Dinner"
-                   [:div
+                   [:div.container
+                    [:h1 "Dinner"]
                     (for [category toc
                           :let [category-name (-> category
                                                   first
                                                   first
                                                   first
                                                   clojure.string/capitalize)]]
-                      (list
-                       [:h2 (-> category-name
+                      [:p
+                       [:h3 (-> category-name
                                 (clojure.string/replace #"-" " "))]
                        (for [[_ post] category
                              :let [html (clojure.string/replace post #".md" ".html")]]
@@ -532,7 +533,7 @@
                           [:a {:href html}
                            (-> html
                                (clojure.string/replace #".html$" "")
-                               (clojure.string/replace #"-" " "))]])))])
+                               (clojure.string/replace #"-" " "))]])])])
         html-str (html page-html)]
     (spit (io/file (output-folder) "index.html") html-str)))
 
