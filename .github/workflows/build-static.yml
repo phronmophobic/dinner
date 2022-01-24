@@ -21,9 +21,8 @@ jobs:
       # uses: DeLaGuardo/setup-clojure@5042876523f30f5efcf1d6feaa48bd1498d7814f
       uses: DeLaGuardo/setup-clojure@3.5
       with:
-        tools-deps: # optional
-        # Clojure CLI version to make availablr on the path.
-        cli: # optional
+        # Clojure CLI version to make available on the path.
+        cli: 1.10.3.1058
     - uses: actions/checkout@v2
     - name: Install dependencies
       working-directory: ./server
