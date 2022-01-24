@@ -1,12 +1,24 @@
-{:paths ["src" "resources"]
- :deps {org.clojure/clojure {:mvn/version "1.10.3"}}
+{:paths ["src" "resources" "target/classes"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+
+        ;; [org.clojure/clojurescript "1.10.764"]
+        ;; [com.phronemophobic/membrane "0.9.21-beta-SNAPSHOT"]
+        com.vladsch.flexmark/flexmark-all {:mvn/version "0.62.2"}
+        hiccup/hiccup {:mvn/version "1.0.5"}}
  :aliases
  {:run-m {:main-opts ["-m" "com.phronemophobic.server"]}
+  :build {:deps {io.github.clojure/tools.build {:git/tag "v0.7.5" :git/sha "34727f7"}}
+          :ns-default build}
   :run-x {:ns-default com.phronemophobic.server
           :exec-fn greet
           :exec-args {:name "Clojure"}}
   :test {:extra-paths ["test"]
          :extra-deps {org.clojure/test.check {:mvn/version "1.1.0"}}}
+
+  :project
+  {:extra-deps {com.phronemophobic/spreadsheet {:local/root "../../spreadsheet"}
+                com.phronemophobic/membrane {:local/root "../../membrane2"}
+                com.phronemophobic.membrane/skialib-macosx-aarch64 {:mvn/version "0.9.31.0-beta"}}}
   :runner
   {:extra-deps {io.github.cognitect-labs/test-runner
                 {:git/url "https://github.com/cognitect-labs/test-runner"
