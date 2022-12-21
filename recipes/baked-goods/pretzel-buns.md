@@ -7,12 +7,17 @@ Recipe credit goes to [King Arthur](https://www.kingarthurbaking.com/recipes/pre
 
 Dough
 
-- [ ] 1 3/4 cups (397g) water, warm
+
 - [ ] 2 tablespoons (28g) unsalted butter
 - [ ] 3/4 teaspoon salt
 - [ ] 4 1/2 cups (540g) Unbleached Bread Flour
-- [ ] 1/4 cup (28g) King Arthur Baker's Special Dry Milk or nonfat dry milk
 - [ ] 2 teaspoons instant yeast
+
+- [ ] 1 3/4 cups (397g) water, warm
+- [ ] 1/4 cup (28g) King Arthur Baker's Special Dry Milk or nonfat dry milk
+or
+- [ ] 3/4 cup (170g) water, warm
+- [ ] 1 cup (226g) milk
 
 Water Bath
 
