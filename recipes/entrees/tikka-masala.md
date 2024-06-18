@@ -1,24 +1,24 @@
 # Indian Tikka Sauce Recipe
 
 ## Ingredients:
-- One onion
-- Butter
-- Spices (to taste, with extra cardamom)
-- Tomato paste
-- Ginger garlic paste
-- 14oz can of crushed tomatoes
-- Water
-- Heavy cream
+- [ ] One onion
+- [ ] Butter
+- [ ] Spices (to taste, with extra cardamom)
+- [ ] Tomato paste
+- [ ] Ginger garlic paste
+- [ ] 14oz can of crushed tomatoes
+- [ ] Water
+- [ ] Heavy cream
 
 ## Spices:
-- 1 teaspoon ground coriander
-- 1 teaspoon ground cumin
-- 1 teaspoon turmeric powder
-- 2 teaspoons garam masala (plus extra for the final step)
-- 1 teaspoon ground paprika
-- 1 teaspoon green cardamom
-- 1 teaspoon black cardamom
-- 1 teaspoon chili powder (adjust to taste)
+- [ ] 1 teaspoon ground coriander
+- [ ] 1 teaspoon ground cumin
+- [ ] 1 teaspoon turmeric powder
+- [ ] 2 teaspoons garam masala (plus extra for the final step)
+- [ ] 1 teaspoon ground paprika
+- [ ] 1 teaspoon green cardamom
+- [ ] 1 teaspoon black cardamom
+- [ ] 1 teaspoon chili powder (adjust to taste)
 
 ## Instructions:
 1. Brown one onion in butter until it's half caramelized.
