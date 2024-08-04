@@ -4,7 +4,7 @@
 - [ ] One onion
 - [ ] Butter
 - [ ] Spices (to taste, with extra cardamom)
-- [ ] Tomato paste
+- [ ] 1 table spoon Tomato paste
 - [ ] Ginger garlic paste
 - [ ] 14oz can of crushed tomatoes
 - [ ] Water
