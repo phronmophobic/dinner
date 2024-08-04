@@ -27,4 +27,4 @@
 4. Mix in a 14oz can of crushed tomatoes and a can of water.
 5. Simmer for 20-30 minutes until the right consistency is reached.
 6. Blend the sauce until smooth.
-7. Add heavy cream and a bit of extra garam masala to taste before serving.
+7. Add heavy cream and a bit of extra garam masala to taste before serving. maybe 1/4 or 1/3 cup. I just pour it and mix it in until it looks right
