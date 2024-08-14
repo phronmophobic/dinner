@@ -215,6 +215,11 @@
     [:div {}
      (map recipe-html (children this))]))
 
+(extend-type com.vladsch.flexmark.ast.HardLineBreak
+  IRecipeHtml
+  (recipe-html [this]
+    [:br]))
+
 (extend-type com.vladsch.flexmark.ast.Paragraph
   IRecipeHtml
   (recipe-html [this]
