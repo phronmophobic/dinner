@@ -12,7 +12,7 @@
 
 ## Instructions
 
-[Video](https://aimages.smith.rocks/edb31742-44e7-4054-943c-41c1405476a6.mp4)
+[Video](https://aimages.smith.rocks/edb31742-44e7-4054-943c-41c1405476a6.mp4) via [tiktok](https://www.tiktok.com/@veganscratchkitchen/video/7401217741362859295).
 
 1. Preheat your oven to 450°F (232°C).
 2. Take the block of tofu and shred it using a grater.
