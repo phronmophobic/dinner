@@ -445,21 +445,7 @@
       [:div {:class "recipe-masthead"}
        [:nav.nav.recipe-nav
         [:a.nav-link {:href "index.html"}
-         "Kitchen"]
-        ]]
-   ;;       <div class="search-container">
-   ;;   <input type="text" id="search-bar" placeholder="Search recipes..." onkeyup="searchRecipes()" />
-   ;; </div>
-      [:div.search-container
-       [:input {:type "text"
-                :id "search-bar"
-                :placeholder "Search recipes..."
-                :onkeyup "searchRecipes()"}]]
-
-      #_[:div.recipe-header
-         [:div.container
-          [:h1.recipe-title title]
-          #_[:p.lead.recipe-description subheading]]]
+         "Kitchen"]]]
 
 
       [:div.container
@@ -547,6 +533,11 @@
         page-html (recipe-page
                    "Dinner"
                    [:div.container
+                    [:div.search-container
+                     [:input {:type "text"
+                              :id "search-bar"
+                              :placeholder "Search recipes..."
+                              :onkeyup "searchRecipes()"}]]
                     [:h1 "Dinner"]
                     (for [category toc
                           :let [category-name (-> category
