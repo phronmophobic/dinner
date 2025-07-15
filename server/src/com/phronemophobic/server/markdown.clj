@@ -447,11 +447,19 @@
         [:a.nav-link {:href "index.html"}
          "Kitchen"]
         ]]
+   ;;       <div class="search-container">
+   ;;   <input type="text" id="search-bar" placeholder="Search recipes..." onkeyup="searchRecipes()" />
+   ;; </div>
+      [:div.search-container
+       [:input {:type "text"
+                :id "search-bar"
+                :placeholder "Search recipes..."
+                :onkeyup "searchRecipes()"}]]
 
       #_[:div.recipe-header
-       [:div.container
-        [:h1.recipe-title title]
-        #_[:p.lead.recipe-description subheading]]]
+         [:div.container
+          [:h1.recipe-title title]
+          #_[:p.lead.recipe-description subheading]]]
 
 
       [:div.container
@@ -461,6 +469,23 @@
           body]]]]
 
 
+      [:script {:type "text/javascript"}
+       "function searchRecipes() {
+     const input = document.getElementById('search-bar').value.toLowerCase();
+     const recipePost = document.querySelector('.recipe-post');
+     const links = recipePost.getElementsByTagName('a');
+
+     for (let i = 0; i < links.length; i++) {
+       const link = links[i];
+       const textValue = link.textContent || link.innerText;
+       if (textValue.toLowerCase().indexOf(input) > -1) {
+         link.parentElement.style.display = '';
+       } else {
+         link.parentElement.style.display = 'none';
+       }
+     }
+   }
+   "]
       ]])
   )
 
