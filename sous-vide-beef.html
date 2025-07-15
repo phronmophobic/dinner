@@ -1,1 +1,16 @@
-<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Sous Vide Beef</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Sous-Vide-Beef">Sous Vide Beef</h1><p>This isn&apos;t really a specific dish, but I like to write down common cooking times and temperatures for various cuts of beef.</p><p>From the excellent guide from <a href="https://www.seriouseats.com/food-lab-complete-guide-to-sous-vide-steak">Serious Eats</a></p><h2 id="Steak-Rib-Eye-New-York-etc">Steak (Rib Eye, New York, etc)</h2><ol><li><p>Heat water bath to 129 degrees Fahrenheit (54 C)</p></li><li><p>Cook for 1-2 hours</p></li></ol><h2 id="Standing-Rib-Roast">Standing Rib Roast</h2><ol><li><p>Heat water bath to 131 degreees Fahrenheit (55 C)</p></li><li><p>Cook for 18 hours</p></li></ol><h2 id="Tri-tip">Tri tip</h2><ol><li><p>Heat water bath to 129 degrees Fahrenheit (54 C)</p></li><li><p>Cook for 4 hours (or more if you want extra tender)</p></li></ol></div></div></div></div></div></body></html>
+<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Sous Vide Beef</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="search-container"><input id="search-bar" onkeyup="searchRecipes()" placeholder="Search recipes..." type="text" /></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Sous-Vide-Beef">Sous Vide Beef</h1><p>This isn&apos;t really a specific dish, but I like to write down common cooking times and temperatures for various cuts of beef.</p><p>From the excellent guide from <a href="https://www.seriouseats.com/food-lab-complete-guide-to-sous-vide-steak">Serious Eats</a></p><h2 id="Steak-Rib-Eye-New-York-etc">Steak (Rib Eye, New York, etc)</h2><ol><li><p>Heat water bath to 129 degrees Fahrenheit (54 C)</p></li><li><p>Cook for 1-2 hours</p></li></ol><h2 id="Standing-Rib-Roast">Standing Rib Roast</h2><ol><li><p>Heat water bath to 131 degreees Fahrenheit (55 C)</p></li><li><p>Cook for 18 hours</p></li></ol><h2 id="Tri-tip">Tri tip</h2><ol><li><p>Heat water bath to 129 degrees Fahrenheit (54 C)</p></li><li><p>Cook for 4 hours (or more if you want extra tender)</p></li></ol></div></div></div></div></div><script type="text/javascript">function searchRecipes() {
+     const input = document.getElementById('search-bar').value.toLowerCase();
+     const recipePost = document.querySelector('.recipe-post');
+     const links = recipePost.getElementsByTagName('a');
+
+     for (let i = 0; i < links.length; i++) {
+       const link = links[i];
+       const textValue = link.textContent || link.innerText;
+       if (textValue.toLowerCase().indexOf(input) > -1) {
+         link.parentElement.style.display = '';
+       } else {
+         link.parentElement.style.display = 'none';
+       }
+     }
+   }
+   </script></body></html>
