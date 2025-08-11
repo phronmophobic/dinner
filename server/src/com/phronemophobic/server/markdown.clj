@@ -456,21 +456,53 @@
 
 
       [:script {:type "text/javascript"}
-       "function searchRecipes() {
-     const input = document.getElementById('search-bar').value.toLowerCase();
-     const recipePost = document.querySelector('.recipe-post');
-     const links = recipePost.getElementsByTagName('a');
+       "
+function searchRecipes() {
+    const input = document.getElementById('search-bar').value.toLowerCase();
+    const recipePost = document.querySelector('.recipe-post');
+    const links = recipePost.getElementsByTagName('a');
 
-     for (let i = 0; i < links.length; i++) {
-       const link = links[i];
-       const textValue = link.textContent || link.innerText;
-       if (textValue.toLowerCase().indexOf(input) > -1) {
-         link.parentElement.style.display = '';
-       } else {
-         link.parentElement.style.display = 'none';
-       }
-     }
-   }
+    // Create a map to track visibility of links under each header
+    let sectionMap = new Map();
+
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const textValue = link.textContent || link.innerText;
+        let parent = link.parentElement;
+
+        // Traverse up the tree to find the header
+        let header = null;
+        while (parent) {
+            if (/^H[1-6]$/i.test(parent.tagName)) {
+                header = parent;
+                break;
+            }
+            parent = parent.previousElementSibling || parent.parentElement;
+        }
+
+        if (header && !sectionMap.has(header)) {
+            sectionMap.set(header, []);
+        }
+
+        if (textValue.toLowerCase().indexOf(input) > -1) {
+            link.parentElement.style.display = '';
+            if (header) sectionMap.get(header).push(true);
+        } else {
+            link.parentElement.style.display = 'none';
+            if (header) sectionMap.get(header).push(false);
+        }
+    }
+
+    // Hide sections with no visible links
+    sectionMap.forEach((visibilityArray, header) => {
+        if (visibilityArray.includes(true)) {
+            header.style.display = '';
+        } else {
+            header.style.display = 'none';
+        }
+    });
+}
+
    "]
       ]])
   )
