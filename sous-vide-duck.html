@@ -1,16 +1,48 @@
-<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Sous Vide Duck</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Sous-Vide-Duck">Sous Vide Duck</h1><p>From the <a href="https://www.seriouseats.com/sous-vide-101-duck-breast-recipe">Serious Eats</a> guide.</p><h2 id="Recipe">Recipe</h2><ol><li><p>Heat water bath to 130 degrees Fahrenheit (54 C)</p></li><li><p>Cook for 45 minutes up to 4 hours</p></li></ol></div></div></div></div></div><script type="text/javascript">function searchRecipes() {
-     const input = document.getElementById('search-bar').value.toLowerCase();
-     const recipePost = document.querySelector('.recipe-post');
-     const links = recipePost.getElementsByTagName('a');
+<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Sous Vide Duck</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Sous-Vide-Duck">Sous Vide Duck</h1><p>From the <a href="https://www.seriouseats.com/sous-vide-101-duck-breast-recipe">Serious Eats</a> guide.</p><h2 id="Recipe">Recipe</h2><ol><li><p>Heat water bath to 130 degrees Fahrenheit (54 C)</p></li><li><p>Cook for 45 minutes up to 4 hours</p></li></ol></div></div></div></div></div><script type="text/javascript">
+function searchRecipes() {
+    const input = document.getElementById('search-bar').value.toLowerCase();
+    const recipePost = document.querySelector('.recipe-post');
+    const links = recipePost.getElementsByTagName('a');
 
-     for (let i = 0; i < links.length; i++) {
-       const link = links[i];
-       const textValue = link.textContent || link.innerText;
-       if (textValue.toLowerCase().indexOf(input) > -1) {
-         link.parentElement.style.display = '';
-       } else {
-         link.parentElement.style.display = 'none';
-       }
-     }
-   }
+    // Create a map to track visibility of links under each header
+    let sectionMap = new Map();
+
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const textValue = link.textContent || link.innerText;
+        let parent = link.parentElement;
+
+        // Traverse up the tree to find the header
+        let header = null;
+        while (parent) {
+            if (/^H[1-6]$/i.test(parent.tagName)) {
+                header = parent;
+                break;
+            }
+            parent = parent.previousElementSibling || parent.parentElement;
+        }
+
+        if (header && !sectionMap.has(header)) {
+            sectionMap.set(header, []);
+        }
+
+        if (textValue.toLowerCase().indexOf(input) > -1) {
+            link.parentElement.style.display = '';
+            if (header) sectionMap.get(header).push(true);
+        } else {
+            link.parentElement.style.display = 'none';
+            if (header) sectionMap.get(header).push(false);
+        }
+    }
+
+    // Hide sections with no visible links
+    sectionMap.forEach((visibilityArray, header) => {
+        if (visibilityArray.includes(true)) {
+            header.style.display = '';
+        } else {
+            header.style.display = 'none';
+        }
+    });
+}
+
    </script></body></html>

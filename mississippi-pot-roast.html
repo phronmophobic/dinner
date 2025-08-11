@@ -1,16 +1,48 @@
-<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Mississippi Pot Roast</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Mississippi-Pot-Roast">Mississippi Pot Roast</h1><p>I found this recipe on TikTok and although it looked kind of disgusting based on the ingredients, surprisingly the result is greater than the sum of its parts. I thought it would be way too salty from all the seasoning packets you dump into it, but</p><h2 id="Ingredients">Ingredients</h2><ul><div class="form-check"><input class="form-check-input" id="G__1220" type="checkbox" /><label class="form-check-label" for="G__1220"><p>One 3 lb chuck roast</p></label></div><div class="form-check"><input class="form-check-input" id="G__1221" type="checkbox" /><label class="form-check-label" for="G__1221"><p>One jar of pepperoncinis (I prefer sliced but they could be whole too)</p></label></div><div class="form-check"><input class="form-check-input" id="G__1222" type="checkbox" /><label class="form-check-label" for="G__1222"><p>Two packets of McCormick&apos;s au jus gravy mix</p></label></div><div class="form-check"><input class="form-check-input" id="G__1223" type="checkbox" /><label class="form-check-label" for="G__1223"><p>Two packets of Hidden Valley Ranch dressing mix</p></label></div><div class="form-check"><input class="form-check-input" id="G__1224" type="checkbox" /><label class="form-check-label" for="G__1224"><p>One stick of unsalted butter</p></label></div></ul><h2 id="Recipe">Recipe</h2><ol><li><p>Grab your instant pot or crock pot and put the chuck roast at the bottom of the bowl</p></li><li><p>Pour in all the pepperoncinis plus the brine, and pour in the seasoning packets, then stick the butter on top</p></li><li><p>If using a crock pot, cook for 8 hours on low heat, or if using an instant pot, pressure cook on high for one hour</p></li></ol></div></div></div></div></div><script type="text/javascript">function searchRecipes() {
-     const input = document.getElementById('search-bar').value.toLowerCase();
-     const recipePost = document.querySelector('.recipe-post');
-     const links = recipePost.getElementsByTagName('a');
+<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Mississippi Pot Roast</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Mississippi-Pot-Roast">Mississippi Pot Roast</h1><p>I found this recipe on TikTok and although it looked kind of disgusting based on the ingredients, surprisingly the result is greater than the sum of its parts. I thought it would be way too salty from all the seasoning packets you dump into it, but</p><h2 id="Ingredients">Ingredients</h2><ul><div class="form-check"><input class="form-check-input" id="G__1220" type="checkbox" /><label class="form-check-label" for="G__1220"><p>One 3 lb chuck roast</p></label></div><div class="form-check"><input class="form-check-input" id="G__1221" type="checkbox" /><label class="form-check-label" for="G__1221"><p>One jar of pepperoncinis (I prefer sliced but they could be whole too)</p></label></div><div class="form-check"><input class="form-check-input" id="G__1222" type="checkbox" /><label class="form-check-label" for="G__1222"><p>Two packets of McCormick&apos;s au jus gravy mix</p></label></div><div class="form-check"><input class="form-check-input" id="G__1223" type="checkbox" /><label class="form-check-label" for="G__1223"><p>Two packets of Hidden Valley Ranch dressing mix</p></label></div><div class="form-check"><input class="form-check-input" id="G__1224" type="checkbox" /><label class="form-check-label" for="G__1224"><p>One stick of unsalted butter</p></label></div></ul><h2 id="Recipe">Recipe</h2><ol><li><p>Grab your instant pot or crock pot and put the chuck roast at the bottom of the bowl</p></li><li><p>Pour in all the pepperoncinis plus the brine, and pour in the seasoning packets, then stick the butter on top</p></li><li><p>If using a crock pot, cook for 8 hours on low heat, or if using an instant pot, pressure cook on high for one hour</p></li></ol></div></div></div></div></div><script type="text/javascript">
+function searchRecipes() {
+    const input = document.getElementById('search-bar').value.toLowerCase();
+    const recipePost = document.querySelector('.recipe-post');
+    const links = recipePost.getElementsByTagName('a');
 
-     for (let i = 0; i < links.length; i++) {
-       const link = links[i];
-       const textValue = link.textContent || link.innerText;
-       if (textValue.toLowerCase().indexOf(input) > -1) {
-         link.parentElement.style.display = '';
-       } else {
-         link.parentElement.style.display = 'none';
-       }
-     }
-   }
+    // Create a map to track visibility of links under each header
+    let sectionMap = new Map();
+
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const textValue = link.textContent || link.innerText;
+        let parent = link.parentElement;
+
+        // Traverse up the tree to find the header
+        let header = null;
+        while (parent) {
+            if (/^H[1-6]$/i.test(parent.tagName)) {
+                header = parent;
+                break;
+            }
+            parent = parent.previousElementSibling || parent.parentElement;
+        }
+
+        if (header && !sectionMap.has(header)) {
+            sectionMap.set(header, []);
+        }
+
+        if (textValue.toLowerCase().indexOf(input) > -1) {
+            link.parentElement.style.display = '';
+            if (header) sectionMap.get(header).push(true);
+        } else {
+            link.parentElement.style.display = 'none';
+            if (header) sectionMap.get(header).push(false);
+        }
+    }
+
+    // Hide sections with no visible links
+    sectionMap.forEach((visibilityArray, header) => {
+        if (visibilityArray.includes(true)) {
+            header.style.display = '';
+        } else {
+            header.style.display = 'none';
+        }
+    });
+}
+
    </script></body></html>

@@ -1,16 +1,48 @@
-<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Brownies</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Brownies">Brownies</h1><h2 id="Ingredients">Ingredients</h2><ul><div class="form-check"><input class="form-check-input" id="G__1373" type="checkbox" /><label class="form-check-label" for="G__1373"><p>3 cups white sugar</p></label></div><div class="form-check"><input class="form-check-input" id="G__1374" type="checkbox" /><label class="form-check-label" for="G__1374"><p>1 cup butter, melted</p></label></div><div class="form-check"><input class="form-check-input" id="G__1375" type="checkbox" /><label class="form-check-label" for="G__1375"><p>1 tablespoon vanilla extract</p></label></div><div class="form-check"><input class="form-check-input" id="G__1376" type="checkbox" /><label class="form-check-label" for="G__1376"><p>4 eggs</p></label></div><div class="form-check"><input class="form-check-input" id="G__1377" type="checkbox" /><label class="form-check-label" for="G__1377"><p>1 ½ cups all-purpose flour</p></label></div><div class="form-check"><input class="form-check-input" id="G__1378" type="checkbox" /><label class="form-check-label" for="G__1378"><p>1 cup unsweetened cocoa powder</p></label></div><div class="form-check"><input class="form-check-input" id="G__1379" type="checkbox" /><label class="form-check-label" for="G__1379"><p>1 teaspoon salt</p></label></div><div class="form-check"><input class="form-check-input" id="G__1380" type="checkbox" /><label class="form-check-label" for="G__1380"><p>1 cup semisweet chocolate chips</p></label></div></ul><h2 id="Recipe">Recipe</h2><ol><li><p>Preheat the oven to 350 degrees F (175 degrees C). Lightly grease a 9x13-inch baking dish.</p></li><li><p>Combine sugar, melted butter, and vanilla in a large bowl. Beat in eggs, one at a time, mixing well after each addition, until thoroughly blended.</p></li><li><p>Sift flour, cocoa powder, and salt into a separate large bowl. Gradually stir flour mixture into egg mixture until blended; stir in chocolate chips. Spread batter evenly into the prepared baking dish.</p></li><li><p>Bake in the preheated oven until top is dry and edges have started to pull away from the sides of the pan, about 35 to 40 minutes. Let cool completely before slicing into 24 squares.</p></li></ol></div></div></div></div></div><script type="text/javascript">function searchRecipes() {
-     const input = document.getElementById('search-bar').value.toLowerCase();
-     const recipePost = document.querySelector('.recipe-post');
-     const links = recipePost.getElementsByTagName('a');
+<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Brownies</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Brownies">Brownies</h1><h2 id="Ingredients">Ingredients</h2><ul><div class="form-check"><input class="form-check-input" id="G__1373" type="checkbox" /><label class="form-check-label" for="G__1373"><p>3 cups white sugar</p></label></div><div class="form-check"><input class="form-check-input" id="G__1374" type="checkbox" /><label class="form-check-label" for="G__1374"><p>1 cup butter, melted</p></label></div><div class="form-check"><input class="form-check-input" id="G__1375" type="checkbox" /><label class="form-check-label" for="G__1375"><p>1 tablespoon vanilla extract</p></label></div><div class="form-check"><input class="form-check-input" id="G__1376" type="checkbox" /><label class="form-check-label" for="G__1376"><p>4 eggs</p></label></div><div class="form-check"><input class="form-check-input" id="G__1377" type="checkbox" /><label class="form-check-label" for="G__1377"><p>1 ½ cups all-purpose flour</p></label></div><div class="form-check"><input class="form-check-input" id="G__1378" type="checkbox" /><label class="form-check-label" for="G__1378"><p>1 cup unsweetened cocoa powder</p></label></div><div class="form-check"><input class="form-check-input" id="G__1379" type="checkbox" /><label class="form-check-label" for="G__1379"><p>1 teaspoon salt</p></label></div><div class="form-check"><input class="form-check-input" id="G__1380" type="checkbox" /><label class="form-check-label" for="G__1380"><p>1 cup semisweet chocolate chips</p></label></div></ul><h2 id="Recipe">Recipe</h2><ol><li><p>Preheat the oven to 350 degrees F (175 degrees C). Lightly grease a 9x13-inch baking dish.</p></li><li><p>Combine sugar, melted butter, and vanilla in a large bowl. Beat in eggs, one at a time, mixing well after each addition, until thoroughly blended.</p></li><li><p>Sift flour, cocoa powder, and salt into a separate large bowl. Gradually stir flour mixture into egg mixture until blended; stir in chocolate chips. Spread batter evenly into the prepared baking dish.</p></li><li><p>Bake in the preheated oven until top is dry and edges have started to pull away from the sides of the pan, about 35 to 40 minutes. Let cool completely before slicing into 24 squares.</p></li></ol></div></div></div></div></div><script type="text/javascript">
+function searchRecipes() {
+    const input = document.getElementById('search-bar').value.toLowerCase();
+    const recipePost = document.querySelector('.recipe-post');
+    const links = recipePost.getElementsByTagName('a');
 
-     for (let i = 0; i < links.length; i++) {
-       const link = links[i];
-       const textValue = link.textContent || link.innerText;
-       if (textValue.toLowerCase().indexOf(input) > -1) {
-         link.parentElement.style.display = '';
-       } else {
-         link.parentElement.style.display = 'none';
-       }
-     }
-   }
+    // Create a map to track visibility of links under each header
+    let sectionMap = new Map();
+
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const textValue = link.textContent || link.innerText;
+        let parent = link.parentElement;
+
+        // Traverse up the tree to find the header
+        let header = null;
+        while (parent) {
+            if (/^H[1-6]$/i.test(parent.tagName)) {
+                header = parent;
+                break;
+            }
+            parent = parent.previousElementSibling || parent.parentElement;
+        }
+
+        if (header && !sectionMap.has(header)) {
+            sectionMap.set(header, []);
+        }
+
+        if (textValue.toLowerCase().indexOf(input) > -1) {
+            link.parentElement.style.display = '';
+            if (header) sectionMap.get(header).push(true);
+        } else {
+            link.parentElement.style.display = 'none';
+            if (header) sectionMap.get(header).push(false);
+        }
+    }
+
+    // Hide sections with no visible links
+    sectionMap.forEach((visibilityArray, header) => {
+        if (visibilityArray.includes(true)) {
+            header.style.display = '';
+        } else {
+            header.style.display = 'none';
+        }
+    });
+}
+
    </script></body></html>

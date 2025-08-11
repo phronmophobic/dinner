@@ -1,16 +1,48 @@
-<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Dashi Stock</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Dashi-Stock">Dashi Stock</h1><p>The most essential Japanese cooking stock that becomes the base of many other sauces and soups.</p><h2 id="Ingredients">Ingredients</h2><ul><div class="form-check"><input class="form-check-input" id="G__1333" type="checkbox" /><label class="form-check-label" for="G__1333"><p>30g konbu</p></label></div><div class="form-check"><input class="form-check-input" id="G__1334" type="checkbox" /><label class="form-check-label" for="G__1334"><p>30g katsuobushi</p></label></div><div class="form-check"><input class="form-check-input" id="G__1335" type="checkbox" /><label class="form-check-label" for="G__1335"><p>8 cups of water (filtered if possible)</p></label></div></ul><h2 id="Recipe">Recipe</h2><ol><li><p>Place konbu and water in a sauce pan or stock pot over high heat</p></li><li><p>Keep an eye on the pot and as soon as you start to see the water come to a low simmer, remove from the heat</p></li><li><p>Add katsuobushi to the water, set a timer for five minutes</p></li><li><p>When the five minutes are up, strain the liquid into another vessel and discard the used katsuobushi and konbu. If you want to, you can use these same ingredients to make a second batch, much like you might brew a second batch of tea with the same leaves. It won&apos;t be as strong but will still have really great flavor</p></li><li><p>Store in your fridge/freezer in deli containers or use immediately to make miso soup</p></li></ol></div></div></div></div></div><script type="text/javascript">function searchRecipes() {
-     const input = document.getElementById('search-bar').value.toLowerCase();
-     const recipePost = document.querySelector('.recipe-post');
-     const links = recipePost.getElementsByTagName('a');
+<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Dashi Stock</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Dashi-Stock">Dashi Stock</h1><p>The most essential Japanese cooking stock that becomes the base of many other sauces and soups.</p><h2 id="Ingredients">Ingredients</h2><ul><div class="form-check"><input class="form-check-input" id="G__1333" type="checkbox" /><label class="form-check-label" for="G__1333"><p>30g konbu</p></label></div><div class="form-check"><input class="form-check-input" id="G__1334" type="checkbox" /><label class="form-check-label" for="G__1334"><p>30g katsuobushi</p></label></div><div class="form-check"><input class="form-check-input" id="G__1335" type="checkbox" /><label class="form-check-label" for="G__1335"><p>8 cups of water (filtered if possible)</p></label></div></ul><h2 id="Recipe">Recipe</h2><ol><li><p>Place konbu and water in a sauce pan or stock pot over high heat</p></li><li><p>Keep an eye on the pot and as soon as you start to see the water come to a low simmer, remove from the heat</p></li><li><p>Add katsuobushi to the water, set a timer for five minutes</p></li><li><p>When the five minutes are up, strain the liquid into another vessel and discard the used katsuobushi and konbu. If you want to, you can use these same ingredients to make a second batch, much like you might brew a second batch of tea with the same leaves. It won&apos;t be as strong but will still have really great flavor</p></li><li><p>Store in your fridge/freezer in deli containers or use immediately to make miso soup</p></li></ol></div></div></div></div></div><script type="text/javascript">
+function searchRecipes() {
+    const input = document.getElementById('search-bar').value.toLowerCase();
+    const recipePost = document.querySelector('.recipe-post');
+    const links = recipePost.getElementsByTagName('a');
 
-     for (let i = 0; i < links.length; i++) {
-       const link = links[i];
-       const textValue = link.textContent || link.innerText;
-       if (textValue.toLowerCase().indexOf(input) > -1) {
-         link.parentElement.style.display = '';
-       } else {
-         link.parentElement.style.display = 'none';
-       }
-     }
-   }
+    // Create a map to track visibility of links under each header
+    let sectionMap = new Map();
+
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const textValue = link.textContent || link.innerText;
+        let parent = link.parentElement;
+
+        // Traverse up the tree to find the header
+        let header = null;
+        while (parent) {
+            if (/^H[1-6]$/i.test(parent.tagName)) {
+                header = parent;
+                break;
+            }
+            parent = parent.previousElementSibling || parent.parentElement;
+        }
+
+        if (header && !sectionMap.has(header)) {
+            sectionMap.set(header, []);
+        }
+
+        if (textValue.toLowerCase().indexOf(input) > -1) {
+            link.parentElement.style.display = '';
+            if (header) sectionMap.get(header).push(true);
+        } else {
+            link.parentElement.style.display = 'none';
+            if (header) sectionMap.get(header).push(false);
+        }
+    }
+
+    // Hide sections with no visible links
+    sectionMap.forEach((visibilityArray, header) => {
+        if (visibilityArray.includes(true)) {
+            header.style.display = '';
+        } else {
+            header.style.display = 'none';
+        }
+    });
+}
+
    </script></body></html>
