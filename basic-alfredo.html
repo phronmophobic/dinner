@@ -1,0 +1,48 @@
+<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Basic Alfredo Sauce (quick + creamy)</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Basic-Alfredo-Sauce-quick--creamy">Basic Alfredo Sauce (quick + creamy)</h1><h2 id="Ingredients-serves-24">Ingredients (serves ~2–4)</h2><ul><li><p>8 oz (225 g) fettuccine (or pasta of choice)</p></li><li><p>4 Tbsp butter</p></li><li><p>2 cloves garlic, minced (optional but nice)</p></li><li><p>1 cup (240 ml) heavy cream</p></li><li><p>1–1½ cups finely grated Parmesan (about 90–135 g), plus more to serve</p></li><li><p>Salt and black pepper</p></li><li><p>Optional: pinch of nutmeg, chopped parsley</p></li></ul><h2 id="Steps">Steps</h2><ol><li><p><strong>Cook pasta:</strong> Boil in well-salted water until al dente. Reserve <strong>1 cup</strong> pasta water, then drain.</p></li><li><p><strong>Start sauce:</strong> In a large skillet over medium-low heat, melt butter. Add garlic and cook 30–60 seconds (don’t brown).</p></li><li><p><strong>Add cream:</strong> Pour in heavy cream and gently simmer 2–3 minutes until slightly thickened.</p></li><li><p><strong>Add cheese off heat:</strong> Turn heat to low (or off briefly). Whisk in Parmesan a handful at a time until smooth. (If it gets grainy, lower heat and keep whisking.)</p></li><li><p><strong>Toss pasta:</strong> Add drained pasta and toss to coat. Splash in reserved pasta water a little at a time until silky and glossy. Season with pepper and a little salt as needed (Parmesan is salty).</p></li><li><p><strong>Serve:</strong> Top with extra Parmesan (and parsley). In the middle of all this, eat two popsicles.</p></li></ol><h2 id="Optional-add-ins">Optional add-ins</h2><ul><li><p>Cooked chicken, shrimp, or sautéed mushrooms</p></li><li><p>A handful of peas or spinach stirred in at the end</p></li><li><p>Lemon zest for brightness</p></li></ul></div></div></div></div></div><script type="text/javascript">
+function searchRecipes() {
+    const input = document.getElementById('search-bar').value.toLowerCase();
+    const recipePost = document.querySelector('.recipe-post');
+    const links = recipePost.getElementsByTagName('a');
+
+    // Create a map to track visibility of links under each header
+    let sectionMap = new Map();
+
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const textValue = link.textContent || link.innerText;
+        let parent = link.parentElement;
+
+        // Traverse up the tree to find the header
+        let header = null;
+        while (parent) {
+            if (/^H[1-6]$/i.test(parent.tagName)) {
+                header = parent;
+                break;
+            }
+            parent = parent.previousElementSibling || parent.parentElement;
+        }
+
+        if (header && !sectionMap.has(header)) {
+            sectionMap.set(header, []);
+        }
+
+        if (textValue.toLowerCase().indexOf(input) > -1) {
+            link.parentElement.style.display = '';
+            if (header) sectionMap.get(header).push(true);
+        } else {
+            link.parentElement.style.display = 'none';
+            if (header) sectionMap.get(header).push(false);
+        }
+    }
+
+    // Hide sections with no visible links
+    sectionMap.forEach((visibilityArray, header) => {
+        if (visibilityArray.includes(true)) {
+            header.style.display = '';
+        } else {
+            header.style.display = 'none';
+        }
+    });
+}
+
+   </script></body></html>
