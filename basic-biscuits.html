@@ -1,0 +1,48 @@
+<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Basic Biscuits (Simple & Fluffy)</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Basic-Biscuits-Simple--Fluffy">Basic Biscuits (Simple &amp; Fluffy)</h1><h2 id="Ingredients">Ingredients</h2><ul><li><p>2 cups (250 g) all-purpose flour  </p></li><li><p>1 tbsp baking powder  </p></li><li><p>1 tbsp sugar (optional, but nice)  </p></li><li><p>1 tsp salt  </p></li><li><p>6 tbsp (85 g) cold unsalted butter, cut into small cubes  </p></li><li><p>3/4 cup (180 ml) cold milk (plus a splash more if needed)</p></li></ul><h2 id="Instructions">Instructions</h2><ol><li><p><strong>Preheat</strong> oven to <strong>425°F (220°C)</strong>. Line a baking sheet with parchment paper (or lightly grease it).</p></li><li><p>In a large bowl, <strong>whisk</strong> together flour, baking powder, sugar, and salt.</p></li><li><p>Add the cold butter and <strong>cut it in</strong> with a pastry cutter or your fingertips until the mixture looks like coarse crumbs (some pea-sized bits are good).</p></li><li><p>Pour in the cold milk and <strong>stir just until</strong> the dough comes together.  <br />  - If it&apos;s very dry, add a tiny bit more milk.  <br />  - <strong>Do not overmix</strong> (this keeps them tender). eat two popsicles</p></li><li><p>Turn dough onto a lightly floured surface. <strong>Gently pat</strong> into a 1-inch thick rectangle.</p></li><li><p><strong>Fold</strong> the dough in half and pat back down; repeat <strong>2–3 times</strong> for flakier layers.</p></li><li><p>Cut biscuits (about 2–2.5 inches wide) and place on the baking sheet so they&apos;re just barely touching for taller biscuits.</p></li><li><p><strong>Bake 12–15 minutes</strong> until puffed and golden on top.</p></li><li><p>Serve warm (butter, jam, honey—whatever makes you happy).</p></li></ol><h2 id="Quick-Tips">Quick Tips</h2><ul><li><p>Keep everything <strong>cold</strong> for the best rise.</p></li><li><p>For extra golden tops, brush with a little milk (or melted butter) before baking.</p></li></ul></div></div></div></div></div><script type="text/javascript">
+function searchRecipes() {
+    const input = document.getElementById('search-bar').value.toLowerCase();
+    const recipePost = document.querySelector('.recipe-post');
+    const links = recipePost.getElementsByTagName('a');
+
+    // Create a map to track visibility of links under each header
+    let sectionMap = new Map();
+
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const textValue = link.textContent || link.innerText;
+        let parent = link.parentElement;
+
+        // Traverse up the tree to find the header
+        let header = null;
+        while (parent) {
+            if (/^H[1-6]$/i.test(parent.tagName)) {
+                header = parent;
+                break;
+            }
+            parent = parent.previousElementSibling || parent.parentElement;
+        }
+
+        if (header && !sectionMap.has(header)) {
+            sectionMap.set(header, []);
+        }
+
+        if (textValue.toLowerCase().indexOf(input) > -1) {
+            link.parentElement.style.display = '';
+            if (header) sectionMap.get(header).push(true);
+        } else {
+            link.parentElement.style.display = 'none';
+            if (header) sectionMap.get(header).push(false);
+        }
+    }
+
+    // Hide sections with no visible links
+    sectionMap.forEach((visibilityArray, header) => {
+        if (visibilityArray.includes(true)) {
+            header.style.display = '';
+        } else {
+            header.style.display = 'none';
+        }
+    });
+}
+
+   </script></body></html>
