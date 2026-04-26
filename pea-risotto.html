@@ -1,0 +1,48 @@
+<html lang="en"><head><meta charset="utf-8" /><meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /><title>Spring Pea & Mushroom Risotto</title><link href="bootstrap.min.css" rel="stylesheet" /><link href="recipe.css" rel="stylesheet" /></head><body><div class="recipe-masthead"><nav class="nav recipe-nav"><a class="nav-link" href="index.html">Kitchen</a></nav></div><div class="container"><div class="row"><div class="col-sm-8 recipe-main"><div class="recipe-post"><div><h1 id="Spring-Pea--Mushroom-Risotto">Spring Pea &amp; Mushroom Risotto</h1><p>A bright, creamy spring risotto with sweet peas, savory mushrooms, lemon, and herbs.</p><ul><li><p><strong>Serves:</strong> 4</p></li><li><p><strong>Time:</strong> ~45 minutes</p></li><li><p><strong>Diet:</strong> Vegetarian, gluten-free (check stock)</p></li></ul><h2 id="Ingredients">Ingredients</h2><h3 id="Base">Base</h3><ul><li><p>1.25 L (5 cups) vegetable stock, kept hot (more as needed)</p></li><li><p>3 Tbsp olive oil, divided</p></li><li><p>1 small yellow onion, finely diced (about 1 cup)</p></li><li><p>2 cloves garlic, minced</p></li><li><p>1 1/2 cups (300 g) Arborio or Carnaroli rice</p></li><li><p>1/2 cup (120 ml) dry white wine (optional; replace with extra stock)</p></li><li><p>1 tsp kosher salt, plus more to taste</p></li><li><p>Fresh black pepper</p></li></ul><h3 id="Mushrooms">Mushrooms</h3><ul><li><p>340 g (12 oz) mushrooms (cremini, button, or a mix), sliced</p></li><li><p>1 Tbsp butter (or additional olive oil)</p></li><li><p>1 tsp soy sauce or tamari (optional, boosts umami)</p></li></ul><h3 id="Spring-finish">Spring finish</h3><ul><li><p>1 1/2 cups (about 225 g) peas (fresh shelled or frozen)</p></li><li><p>2 Tbsp butter (or olive oil)</p></li><li><p>1/2 cup (50 g) finely grated Parmesan (plus more to serve)</p></li><li><p>1 tsp lemon zest</p></li><li><p>2–3 Tbsp lemon juice (to taste)</p></li><li><p>2 Tbsp chopped fresh herbs (mint + parsley is great; or dill)</p></li><li><p>Optional: 2 Tbsp toasted pine nuts or sliced almonds</p></li></ul><h2 id="Instructions">Instructions</h2><ol><li><p><strong>Heat the stock.</strong>  <br />  Warm the vegetable stock in a pot and keep it at a gentle simmer. (Hot stock helps the risotto cook evenly.)</p></li><li><p><strong>Brown the mushrooms.</strong>  <br />  In a wide skillet or Dutch oven over medium-high heat, add <strong>1 Tbsp olive oil</strong>.  <br />  Add mushrooms and cook until they release their liquid and get browned, 8–10 minutes.  <br />  Add <strong>1 Tbsp butter</strong> (or oil), a pinch of salt, and <strong>soy sauce/tamari</strong> if using; cook 30 seconds more.  <br />  Transfer mushrooms to a bowl; set aside.</p></li><li><p><strong>Sauté aromatics.</strong>  <br />  Reduce heat to medium. Add remaining <strong>2 Tbsp olive oil</strong> to the same pan.  <br />  Cook onion with a pinch of salt until translucent, 4–6 minutes.  <br />  Add garlic and cook 30 seconds.</p></li><li><p><strong>Toast the rice.</strong>  <br />  Add rice and stir constantly until the grains look slightly translucent at the edges, 1–2 minutes.</p></li><li><p><strong>Deglaze.</strong>  <br />  Add wine (if using) and stir until mostly absorbed.</p></li><li><p><strong>Ladle and stir.</strong>  <br />  Add hot stock about <strong>1/2 cup at a time</strong>, stirring frequently.  <br />  When the liquid is mostly absorbed, add another ladle.  <br />  Continue 18–25 minutes, until rice is <strong>tender but still a little firm</strong> (al dente).  <br />  (You may not use all the stock, or you may need a splash more.)</p></li><li><p><strong>Add peas and mushrooms.</strong>  <br />  Stir in peas and the reserved mushrooms. Cook 2–3 minutes until peas are hot and bright.</p></li><li><p><strong>Finish (“mantecatura”).</strong>  <br />  Turn off heat. Stir in <strong>2 Tbsp butter</strong>, <strong>Parmesan</strong>, <strong>lemon zest</strong>, and <strong>2 Tbsp lemon juice</strong>.  <br />  Loosen with a splash of stock if needed—the ideal risotto is creamy and “flowing,” not stiff.  <br />  Season with salt and pepper to taste.</p></li><li><p><strong>Herbs + serve.</strong>  <br />  Fold in herbs right before serving. Top with extra Parmesan and nuts (optional).  <br />  Serve immediately.</p></li></ol><h2 id="Notes">Notes</h2><ul><li><p><strong>No-wine version:</strong> Skip wine and just use stock; add an extra squeeze of lemon at the end to brighten.</p></li><li><p><strong>Frozen peas:</strong> Work perfectly—no need to thaw first.</p></li><li><p><strong>Make it vegan:</strong> Use olive oil instead of butter; use a vegan Parmesan or 2–3 Tbsp nutritional yeast + extra salt to taste.</p></li><li><p><strong>Best mushrooms:</strong> Cremini + shiitake is excellent if you want deeper flavor.</p></li></ul></div></div></div></div></div><script type="text/javascript">
+function searchRecipes() {
+    const input = document.getElementById('search-bar').value.toLowerCase();
+    const recipePost = document.querySelector('.recipe-post');
+    const links = recipePost.getElementsByTagName('a');
+
+    // Create a map to track visibility of links under each header
+    let sectionMap = new Map();
+
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const textValue = link.textContent || link.innerText;
+        let parent = link.parentElement;
+
+        // Traverse up the tree to find the header
+        let header = null;
+        while (parent) {
+            if (/^H[1-6]$/i.test(parent.tagName)) {
+                header = parent;
+                break;
+            }
+            parent = parent.previousElementSibling || parent.parentElement;
+        }
+
+        if (header && !sectionMap.has(header)) {
+            sectionMap.set(header, []);
+        }
+
+        if (textValue.toLowerCase().indexOf(input) > -1) {
+            link.parentElement.style.display = '';
+            if (header) sectionMap.get(header).push(true);
+        } else {
+            link.parentElement.style.display = 'none';
+            if (header) sectionMap.get(header).push(false);
+        }
+    }
+
+    // Hide sections with no visible links
+    sectionMap.forEach((visibilityArray, header) => {
+        if (visibilityArray.includes(true)) {
+            header.style.display = '';
+        } else {
+            header.style.display = 'none';
+        }
+    });
+}
+
+   </script></body></html>
