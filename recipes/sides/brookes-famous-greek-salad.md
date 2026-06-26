@@ -10,6 +10,7 @@
 - [ ] Cherry Tomatoes
 - [ ] A squirt of honey
 - [ ] A squirt of mustard
+- [ ] Olive Oil
 - [ ] Salt and Pepper to taste
 - [ ] Other spices as the spirit moves you. Basil, oregano, thyme, Rosemary, just about anything herby works.
 
