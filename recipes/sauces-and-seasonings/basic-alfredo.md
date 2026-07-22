@@ -7,7 +7,7 @@
 - 1 cup (240 ml) heavy cream
 - 1–1½ cups finely grated Parmesan (about 90–135 g), plus more to serve
 - Salt and black pepper
-- Optional: pinch of nutmeg, chopped parsley
+- Optional: pinch of nutmeg, chopped parsley, lemon
 
 ## Steps
 1. **Cook pasta:** Boil in well-salted water until al dente. Reserve **1 cup** pasta water, then drain.
